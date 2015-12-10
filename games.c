@@ -35,8 +35,8 @@ SQLRETURN addVideoGame(char* name, int publisherID, SQLHANDLE handle)
 
     //bind the parameters
     //details: http://msdn.microsoft.com/en-us/library/windows/desktop/ms710963(v=vs.85).aspx
-    SQLINTEGER zero = 0;
-    SQLINTEGER nts = SQL_NTS;
+    SQLLEN zero = 0;
+    SQLLEN nts = SQL_NTS;
     SQLBindParameter(handle, 1, SQL_PARAM_INPUT, SQL_C_CHAR,  SQL_CHAR,    strlen(name), 0, name,         0, &nts);
     SQLBindParameter(handle, 2, SQL_PARAM_INPUT, SQL_C_SLONG, SQL_INTEGER, 0,            0, &publisherID, 0, &zero);
 
