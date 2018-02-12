@@ -134,7 +134,7 @@ VideoGame** getAllGames(int* numGames, SQLHANDLE handle)
     //Gets all entries in the game table from the DB
     asprintf(&command, "SELECT * FROM game");
     returnVal = SQLExecDirect(handle, command, SQL_NTS);
-    SQLRowCount(handle, numGames);
+    SQLRowCount(handle, (SQLLEN*)numGames);
     free(command);
     
     //Allocates space for the pointers to the individual games
@@ -275,7 +275,7 @@ VideoGame* getGame(char* name, SQLHANDLE handle)
     {
         //check that there is a record
         int numResults = 0;
-        SQLRowCount(handle, &numResults);
+        SQLRowCount(handle, (SQLLEN*) &numResults);
 	if(numResults == 0) {
 	  return NULL;
 	} else if(numResults > 1) {
@@ -348,7 +348,7 @@ Platform* getPlatform(char* name, SQLHANDLE handle)
 
         //check that there is a record
         int numResults = 0;
-        SQLRowCount(handle, &numResults);
+        SQLRowCount(handle, (SQLLEN*) &numResults);
         if(numResults == 0) {
 	  return NULL;
         } else if(numResults > 1) {
@@ -391,7 +391,7 @@ Publisher* getPublisher(char* name, SQLHANDLE handle)
     {
         //check that there is a record
         int numResults = 0;
-        SQLRowCount(handle, &numResults);
+        SQLRowCount(handle, (SQLLEN *)&numResults);
         if(numResults == 0) {
 	  return NULL;
         } else if(numResults > 1) {
