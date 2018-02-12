@@ -1,6 +1,6 @@
 
 //The name of the driver to be used on the system
-char* driver = "myodbcdriver";
+char* driver = "libmaodbc";
         
 //Server the database is stored on
 char* server = "cse.unl.edu";
