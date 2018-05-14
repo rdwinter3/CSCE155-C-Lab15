@@ -1,18 +1,18 @@
 
-//The name of the driver to be used on the system
-char* driver = "libmaodbc";
-        
-//Server the database is stored on
-char* server = "cse.unl.edu";
+// The name of the driver to be used on the system
+const char* driver = "libmaodbc";
 
-//Port for the server
-char* port = "3306";
+// Server the database is stored on
+const char* server = "cse.unl.edu";
 
-//Name of the database on the server
-char* database = "";
+// Port for the server
+const char* port = "3306";
 
-//Username for the database
-char* userID = "";
+// Name of the database on the server
+const char* database = "";
 
-//Password for previous user name
-char* password = "";
+// Username for the database
+const char* userID = "";
+
+// Password for previous user name
+const char* password = "";

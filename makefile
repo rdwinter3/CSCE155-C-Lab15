@@ -1,6 +1,5 @@
-#makefile for Lab 15 - ODBC
+# makefile for Lab 15 - ODBC
 
-#define a variable called CC
 CC = gcc 
 XML_INCLUDE = -I/usr/include/libxml2
 XML_LIB = -lxml2 -lz -lm
@@ -19,5 +18,4 @@ games.o: games.h games.c
 	$(CC) -c -o games.o games.c
 
 clean:
-	rm *.o *~ 
-
+	rm *.o *~

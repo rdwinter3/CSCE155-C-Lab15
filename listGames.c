@@ -1,11 +1,7 @@
-/* Created by Chris Bourke in March 2012
- * Last Modified by Tony Schneider on 4/3/2012
- *
- * odbcGames.c
+/**
  * Uses ODBC to establish a connection to a mySQL database
- * filled with various game information.  
+ * filled with various game information.
  */
-
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,40 +13,39 @@
 #include "odbc_utils.h"
 #include "databaseInfo.h"
 
-int main(int argc, char *argv[])
-{
-    int i;
+int main(int argc, char** argv) {
+  int i;
 
-    //Each stores various information about the connection
-    SQLHANDLE sqlenvhandle;    
-    SQLHANDLE sqlconnectionhandle;
-    SQLHANDLE sqlstatementhandle;
+  // Each stores various information about the connection
+  SQLHANDLE sqlenvhandle;
+  SQLHANDLE sqlconnectionhandle;
+  SQLHANDLE sqlstatementhandle;
 
-    //String to store info that will be used to connect
-    char* connectionInfo;
-    
-    //Create the string containing information about the database connection
-    asprintf(&connectionInfo, "DRIVER={%s};SERVER=%s;"
-             "PORT=%s;DATABASE=%s;UID=%s;PWD=%s;", driver, server, port, database, userID, password);
-    
-    //Connect to the DB.  Exit if there's a problem.
-    if(!setupConnection(&sqlenvhandle, &sqlconnectionhandle, &sqlstatementhandle, connectionInfo))
-    {
-        //Cleans up the connection before exiting
-        finishConnection(sqlenvhandle, sqlstatementhandle, sqlconnectionhandle);
-        return -1;
-    }
+  // String to store info that will be used to connect
+  char* connectionInfo;
 
-    int numGames;
-    VideoGame** games = getAllGames(&numGames, sqlstatementhandle);
-    printf("Video Games Database\n");
-    printf("==========================================\n");
-    for (i = 0; i < numGames; i++)
-    {
-        printGame(games[i]);
-    }
+  // Create the string containing information about the database connection
+  asprintf(&connectionInfo,
+           "DRIVER={%s};SERVER=%s;"
+           "PORT=%s;DATABASE=%s;UID=%s;PWD=%s;",
+           driver, server, port, database, userID, password);
 
-    //Cleans up connection before exiting
+  // Connect to the DB.  Exit if there's a problem.
+  if (!setupConnection(&sqlenvhandle, &sqlconnectionhandle, &sqlstatementhandle,
+                       connectionInfo)) {
+    // Cleans up the connection before exiting
     finishConnection(sqlenvhandle, sqlstatementhandle, sqlconnectionhandle);
-}
+    return -1;
+  }
 
+  int numGames;
+  VideoGame** games = getAllGames(&numGames, sqlstatementhandle);
+  printf("Video Games Database\n");
+  printf("==========================================\n");
+  for (i = 0; i < numGames; i++) {
+    printGame(games[i]);
+  }
+
+  // Cleans up connection before exiting
+  finishConnection(sqlenvhandle, sqlstatementhandle, sqlconnectionhandle);
+}

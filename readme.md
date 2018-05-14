@@ -1,5 +1,10 @@
+# Computer Science I
+## Lab 15 - Databases
 
-Configuration Notes on CSE
+This is a lab used in Computer Science I (CSCE 155E, CSCE 155H) in the [Department of Computer Science & Engineering](https://cse.unl.edu) at the [University of Nebraska-Lincoln](https://unl.edu).
+
+
+### Configuration Notes on CSE
 
 Driver configuration documentation: http://www.easysoft.com/developer/interfaces/odbc/linux.html#driver_defn_unixodbc
 
@@ -17,4 +22,4 @@ As of 2017/12/05:
 
 As of 2018/02/12:
  -MariaDB version: Ver 15.1 Distrib 10.0.32-MariaDB, for Linux (x86_64) using readline 5.1
- -Driver version (libmaodbc) 
+ -Driver version (libmaodbc)
