@@ -67,12 +67,14 @@ int main(int argc, char** argv) {
 		addPublisher(name, sqlstatementhandle);
 	}
   // TODO: 5. Add the video game to the database
-	addVideoGame(name, publisherz.id, sqlstatementhandle);
+	addVideoGame(name, publisherz->id, sqlstatementhandle);
+  //addVideoGame("Pac Man's Revenge", 12345678, sqlstatementhandle);
+  //extractError("", sqlstatementhandle, SQL_HANDLE_STMT);
   // TODO: 6. Load the game from the database
 	game = getGame(name, sqlstatementhandle);
   // TODO: 7. Associate your game with the platform with a particular release
   // year
-	addAvailability(game.id, platformz.id, year, sqlstatementhandle);
+	addAvailability(game->id, platformz->id, year, sqlstatementhandle);
   // Cleans up connection before exiting
   finishConnection(sqlenvhandle, sqlstatementhandle, sqlconnectionhandle);
 }

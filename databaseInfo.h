@@ -9,10 +9,10 @@ const char* server = "cse.unl.edu";
 const char* port = "3306";
 
 // Name of the database on the server
-const char* database = "";
+const char* database = "cse155e";
 
 // Username for the database
-const char* userID = "";
+const char* userID = "cse155e";
 
 // Password for previous user name
-const char* password = "";
+const char* password = "FrontierPsychiatrist";
